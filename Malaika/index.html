@@ -29,7 +29,6 @@
             pointer-events: none; z-index: 0;
         }
 
-        /* Компактный переключатель сверху справа */
         .header-controls {
             position: absolute;
             top: 20px;
@@ -113,9 +112,7 @@
             border: 1px solid rgba(147, 197, 114, 0.1);
         }
 
-        .link-button:active { transform: scale(0.96); }
         .link-button i { font-size: 24px; margin-right: 20px; width: 30px; color: var(--pistachio-main); text-align: center; }
-        
         .btn-content { text-align: left; flex-grow: 1; }
         .btn-title { font-size: 17px; font-weight: 600; display: block; }
         .btn-desc { font-size: 12px; opacity: 0.6; }
@@ -137,7 +134,9 @@
 
 <div class="container">
     <div class="logo-wrapper">
-        <img src="logo.jpg" onerror="this.src='https://via.placeholder.com/150?text=MALAIKA'" alt="Logo" class="logo">
+        <img id="main-logo" src="logo.jpg" 
+             onerror="this.onerror=null; this.src='photo_2026-01-06_18-56-03.jpg';" 
+             alt="Malaika" class="logo">
     </div>
     <h1>MALAIKA</h1>
     <p class="subtitle">Dermalab</p>
@@ -218,7 +217,7 @@
         leaf.style.left = Math.random() * 100 + 'vw';
         leaf.style.top = '-20px';
         container.appendChild(leaf);
-        leaf.animate([{ transform: 'translateY(0) rotate(0deg)', opacity: 0.15 }, { transform: `translateY(${window.innerHeight + 100}px) rotate(360deg)`, opacity: 0 }], { duration: 8000 });
+        leaf.animate([{ transform: 'translateY(0) rotate(0deg)', opacity: 0.15 }, { transform: `translateY(${window.innerHeight + 50}px) rotate(360deg)`, opacity: 0 }], { duration: 8000 });
         setTimeout(() => leaf.remove(), 8000);
     }
     setInterval(createLeaf, 2000);
