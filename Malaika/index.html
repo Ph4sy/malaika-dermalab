@@ -29,7 +29,7 @@
             pointer-events: none; z-index: 0;
         }
 
-        /* Идеальный переключатель */
+        /* Компактный переключатель сверху справа */
         .header-controls {
             position: absolute;
             top: 20px;
@@ -41,13 +41,13 @@
             display: flex;
             background: white;
             padding: 2px;
-            border-radius: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             position: relative;
             width: 110px;
             height: 34px;
             border: 1px solid var(--pistachio-main);
-            overflow: hidden;
+            box-sizing: border-box;
         }
 
         .lang-btn {
@@ -61,13 +61,11 @@
             z-index: 2;
             transition: color 0.3s ease;
             outline: none;
-            text-align: center;
-            line-height: 34px;
+            line-height: 28px;
+            padding: 0;
         }
 
-        .lang-btn.active {
-            color: white;
-        }
+        .lang-btn.active { color: white; }
 
         .slider {
             position: absolute;
@@ -76,12 +74,11 @@
             width: calc(50% - 2px);
             height: calc(100% - 4px);
             background: var(--pistachio-dark);
-            border-radius: 25px;
+            border-radius: 18px;
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1;
         }
 
-        /* Контент */
         .container {
             width: 100%;
             max-width: 400px;
@@ -91,37 +88,39 @@
         }
 
         .logo {
-            width: 130px; 
-            height: 130px;
+            width: 140px; 
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid white;
+            border: 5px solid white;
             box-shadow: 0 10px 30px rgba(147, 197, 114, 0.3);
+            background: #fff;
         }
 
-        h1 { font-size: 28px; margin: 20px 0 5px; letter-spacing: 4px; font-weight: bold; color: var(--pistachio-dark); }
-        .subtitle { font-size: 11px; text-transform: uppercase; letter-spacing: 6px; margin-bottom: 40px; color: var(--pistachio-main); font-weight: bold; }
+        h1 { font-size: 32px; margin: 20px 0 5px; letter-spacing: 4px; font-weight: bold; color: var(--pistachio-dark); }
+        .subtitle { font-size: 12px; text-transform: uppercase; letter-spacing: 6px; margin-bottom: 40px; color: var(--pistachio-main); font-weight: bold; }
 
         .divider { height: 1px; background: rgba(147, 197, 114, 0.2); margin: 30px 0; position: relative; }
-        .divider i { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--pistachio-light); padding: 0 15px; color: var(--pistachio-main); font-size: 14px; }
+        .divider i { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--pistachio-light); padding: 0 15px; color: var(--pistachio-main); }
 
         .link-button {
             display: flex; align-items: center;
             background: white; color: var(--text-color);
-            text-decoration: none; padding: 16px 20px;
-            border-radius: 20px; margin-bottom: 12px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
-            transition: all 0.2s ease;
-            border: 1px solid rgba(147, 197, 114, 0.05);
+            text-decoration: none; padding: 18px 25px;
+            border-radius: 25px; margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            border: 1px solid rgba(147, 197, 114, 0.1);
         }
 
-        .link-button i { font-size: 20px; margin-right: 15px; width: 25px; color: var(--pistachio-main); text-align: center; }
+        .link-button:active { transform: scale(0.96); }
+        .link-button i { font-size: 24px; margin-right: 20px; width: 30px; color: var(--pistachio-main); text-align: center; }
         
         .btn-content { text-align: left; flex-grow: 1; }
-        .btn-title { font-size: 16px; font-weight: 600; display: block; }
-        .btn-desc { font-size: 11px; opacity: 0.6; }
+        .btn-title { font-size: 17px; font-weight: 600; display: block; }
+        .btn-desc { font-size: 12px; opacity: 0.6; }
 
-        .leaf { position: absolute; color: var(--pistachio-main); opacity: 0.12; pointer-events: none; }
+        .leaf { position: absolute; color: var(--pistachio-main); opacity: 0.15; pointer-events: none; }
     </style>
 </head>
 <body>
@@ -138,15 +137,14 @@
 
 <div class="container">
     <div class="logo-wrapper">
-        <img src="logo.jpg" 
-             onerror="this.src='https://via.placeholder.com/150?text=Malaika'" alt="Logo" class="logo">
+        <img src="logo.jpg" onerror="this.src='https://via.placeholder.com/150?text=MALAIKA'" alt="Logo" class="logo">
     </div>
     <h1>MALAIKA</h1>
     <p class="subtitle">Dermalab</p>
 
     <div class="divider"><i class="fas fa-leaf"></i></div>
 
-    <a href="https://www.instagram.com/malaika_dermalab?igsh=dGRhY28zem96azho&utm_source=qr" class="link-button">
+    <a href="https://www.instagram.com/malaika_dermalab" class="link-button">
         <i class="fab fa-instagram"></i>
         <div class="btn-content">
             <span class="btn-title" data-key="instTitle">Instagram</span>
@@ -158,7 +156,7 @@
         <i class="fab fa-telegram-plane"></i>
         <div class="btn-content">
             <span class="btn-title" data-key="tgTitle">Telegram Kanal</span>
-            <span class="btn-desc">Yangiliklar va go'zallik sirlari</span>
+            <span class="btn-desc" data-key="tgDesc">Yangiliklar va go'zallik sirlari</span>
         </div>
     </a>
 
@@ -166,7 +164,7 @@
         <i class="fas fa-paper-plane"></i>
         <div class="btn-content">
             <span class="btn-title" data-key="contactTitle">Murojaat uchun</span>
-            <span class="btn-desc">Mutaxassis bilan bog'lanish</span>
+            <span class="btn-desc" data-key="contactDesc">Mutaxassis bilan bog'lanish</span>
         </div>
     </a>
 
@@ -184,48 +182,35 @@
 <script>
     const translations = {
         uz: {
-            instTitle: "Instagram",
-            instDesc: "Ish jarayonlari va maslahatlar",
-            tgTitle: "Telegram Kanal",
-            tgDesc: "Yangiliklar va go'zallik sirlari",
-            contactTitle: "Murojaat uchun",
-            contactDesc: "Mutaxassis bilan bog'lanish",
+            instTitle: "Instagram", instDesc: "Ish jarayonlari va maslahatlar",
+            tgTitle: "Telegram Kanal", tgDesc: "Yangiliklar va go'zallik sirlari",
+            contactTitle: "Murojaat uchun", contactDesc: "Mutaxassis bilan bog'lanish",
             phoneTitle: "Qo'ng'iroq qilish"
         },
         ru: {
-            instTitle: "Instagram",
-            instDesc: "Наши работы и советы по уходу",
-            tgTitle: "Telegram Канал",
-            tgDesc: "Новости и секреты красоты",
-            contactTitle: "Для обращения",
-            contactDesc: "Связаться с нами напрямую",
+            instTitle: "Instagram", instDesc: "Наши работы и советы по уходу",
+            tgTitle: "Telegram Канал", tgDesc: "Новости и секреты красоты",
+            contactTitle: "Для обращения", contactDesc: "Связаться с нами напрямую",
             phoneTitle: "Позвонить"
         }
     };
 
     function setLanguage(lang) {
-        // Правильный перевод всех текстов
         document.querySelectorAll('[data-key]').forEach(el => {
-            const key = el.getAttribute('data-key');
-            el.innerText = translations[lang][key];
+            el.innerText = translations[lang][el.getAttribute('data-key')];
         });
-
         const slider = document.getElementById('slider');
-        const btnUz = document.getElementById('btn-uz');
-        const btnRu = document.getElementById('btn-ru');
-
         if (lang === 'ru') {
             slider.style.transform = 'translateX(100%)';
-            btnRu.classList.add('active');
-            btnUz.classList.remove('active');
+            document.getElementById('btn-ru').classList.add('active');
+            document.getElementById('btn-uz').classList.remove('active');
         } else {
             slider.style.transform = 'translateX(0)';
-            btnUz.classList.add('active');
-            btnRu.classList.remove('active');
+            document.getElementById('btn-uz').classList.add('active');
+            document.getElementById('btn-ru').classList.remove('active');
         }
     }
 
-    // Эффект листьев
     function createLeaf() {
         const container = document.getElementById('leaf-container');
         const leaf = document.createElement('i');
@@ -233,14 +218,10 @@
         leaf.style.left = Math.random() * 100 + 'vw';
         leaf.style.top = '-20px';
         container.appendChild(leaf);
-        leaf.animate([
-            { transform: 'translateY(0) rotate(0deg)', opacity: 0.12 },
-            { transform: `translateY(110vh) rotate(360deg)`, opacity: 0 }
-        ], { duration: 8000 });
+        leaf.animate([{ transform: 'translateY(0) rotate(0deg)', opacity: 0.15 }, { transform: `translateY(${window.innerHeight + 100}px) rotate(360deg)`, opacity: 0 }], { duration: 8000 });
         setTimeout(() => leaf.remove(), 8000);
     }
     setInterval(createLeaf, 2000);
 </script>
-
 </body>
 </html>
