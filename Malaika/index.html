@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Malaika Dermalab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --p-m: #93C572; 
+            --p-l: #f4f9f0; 
+            --p-d: #2d421e; /* Темно-зеленый для наведения */
+            --btn-bg: #d9e7cc; /* Кнопки темнее фона */
+            --txt: #1e2b15;
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Arial Black', Gadget, sans-serif; /* Более жирный шрифт по умолчанию */
+            background-color: var(--p-l);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+            color: var(--txt);
+        }
+
+        #leaf-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            padding: 80px 20px;
+            text-align: center;
+            z-index: 5;
+        }
+
+        /* Логотип */
+        .logo {
+            width: 150px; height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+
+        h1 { 
+            font-size: 38px; 
+            margin: 10px 0 0; 
+            letter-spacing: 2px; 
+            color: var(--p-d); 
+            font-weight: 900; 
+        }
+
+        .subtitle { 
+            font-size: 14px; 
+            letter-spacing: 5px; 
+            color: var(--p-m); 
+            margin-bottom: 40px; 
+            text-transform: uppercase; 
+            font-weight: 900; 
+        }
+
+        /* Кнопки */
+        .link-button {
+            display: flex;
+            align-items: center;
+            background-color: var(--btn-bg);
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            color: var(--txt);
+            border: 2px solid transparent;
+        }
+
+        /* Эффект при наведении (для ПК) и нажатии (для телефона) */
+        .link-button:hover, .link-button:active {
+            background-color: var(--p-d);
+            transform: scale(0.98);
+        }
+
+        .link-button:hover .btn-title, .link-button:active .btn-title,
+        .link-button:hover .btn-desc, .link-button:active .btn-desc,
+        .link-button:hover i, .link-button:active i {
+            color: #ffffff;
+        }
+
+        .link-button i { 
+            font-size: 26px; 
+            width: 40px; 
+            color: var(--p-d); 
+            margin-right: 15px; 
+            transition: 0.3s;
+        }
+
+        .btn-content { text-align: left; }
+
+        .btn-title { 
+            font-weight: 900; 
+            display: block; 
+            font-size: 19px; 
+            transition: 0.3s;
+        }
+
+        .btn-desc { 
+            font-size: 12px; 
+            font-weight: 700; 
+            opacity: 0.9; 
+            transition: 0.3s;
+        }
+
+        .leaf { position: absolute; color: var(--p-m); opacity: 0.3; pointer-events: none; }
+
+        /* Переключатель языка */
+        .header-controls { position: absolute; top: 20px; right: 20px; z-index: 100; }
+        .lang-switch {
+            display: flex; background: #fff; border-radius: 20px;
+            width: 100px; height: 36px; border: 2px solid var(--p-d);
+            position: relative; cursor: pointer;
+        }
+        .lang-btn { flex: 1; font-size: 11px; font-weight: 900; color: var(--p-d); z-index: 2; line-height: 32px; text-align: center; }
+        .lang-btn.active { color: #fff; }
+        .slider { position: absolute; top: 2px; left: 2px; width: 46px; height: 28px; background: var(--p-d); border-radius: 15px; transition: 0.3s; z-index: 1; }
+    </style>
+</head>
+<body>
+
+<div id="leaf-container"></div>
+
+<div class="header-controls" onclick="toggleLang()">
+    <div class="lang-switch">
+        <div id="slider" class="slider"></div>
+        <div id="btn-uz" class="lang-btn active">UZB</div>
+        <div id="btn-ru" class="lang-btn">RUS</div>
+    </div>
+</div>
+
+<div class="container">
+    <img src="logo.jpg" onerror="this.src='photo_2026-01-06_18-56-03.jpg'" class="logo">
+    <h1>MALAIKA</h1>
+    <p class="subtitle">Dermalab</p>
+
+    <a href="https://www.instagram.com/malaika_dermalab" class="link-button">
+        <i class="fab fa-instagram"></i>
+        <div class="btn-content">
+            <span class="btn-title" data-k="iT">Instagram</span>
+            <span class="btn-desc" data-k="iD">Ish jarayonlari va maslahatlar</span>
+        </div>
+    </a>
+
+    <a href="https://t.me/malaika_skin" class="link-button">
+        <i class="fab fa-telegram-plane"></i>
+        <div class="btn-content">
+            <span class="btn-title" data-k="tT">Telegram Kanal</span>
+            <span class="btn-desc" data-k="tD">Yangiliklar va go'zallik sirlari</span>
+        </div>
+    </a>
+
+    <a href="https://t.me/MalaikaAziz" class="link-button">
+        <i class="fas fa-paper-plane"></i>
+        <div class="btn-content">
+            <span class="btn-title" data-k="cT">Murojaat uchun</span>
+            <span class="btn-desc" data-k="cD">Mutaxassis bilan bog'lanish</span>
+        </div>
+    </a>
+
+    <a href="tel:+998937804189" class="link-button">
+        <i class="fas fa-phone-alt"></i>
+        <div class="btn-content">
+            <span class="btn-title" data-k="pT">Qo'ng'iroq qilish</span>
+            <span class="btn-desc">+998 93 780 41 89</span>
+        </div>
+    </a>
+</div>
+
+<script>
+    const tr = {
+        uz: {iT:"Instagram", iD:"Ish jarayonlari va maslahatlar", tT:"Telegram Kanal", tD:"Yangiliklar va go'zallik sirlari", cT:"Murojaat uchun", cD:"Mutaxassis bilan bog'lanish", pT:"Qo'ng'iroq qilish"},
+        ru: {iT:"Instagram", iD:"Наши работы и советы", tT:"Telegram Канал", tD:"Новости и секреты красоты", cT:"Для связи", cD:"Связаться с нами напрямую", pT:"Позвонить"}
+    };
+    let l = 'uz';
+    function toggleLang() {
+        l = (l === 'uz') ? 'ru' : 'uz';
+        document.querySelectorAll('[data-k]').forEach(el => el.innerText = tr[l][el.getAttribute('data-k')]);
+        document.getElementById('slider').style.transform = (l === 'ru') ? 'translateX(46px)' : 'translateX(0)';
+        document.getElementById('btn-uz').classList.toggle('active');
+        document.getElementById('btn-ru').classList.toggle('active');
+    }
+    function createLeaf() {
+        const c = document.getElementById('leaf-container');
+        if (c.childElementCount > 10) return;
+        const leaf = document.createElement('i');
+        leaf.className = 'fas fa-leaf leaf';
+        leaf.style.left = Math.random() * 100 + 'vw';
+        leaf.style.top = '-20px';
+        c.appendChild(leaf);
+        leaf.animate([{transform:'translateY(0) rotate(0deg)',opacity:0.3},{transform:`translateY(${window.innerHeight+50}px) rotate(360deg)`,opacity:0}],{duration:8000});
+        setTimeout(() => leaf.remove(), 8000);
+    }
+    setInterval(createLeaf, 3000);
+</script>
+</body>
+</html>
